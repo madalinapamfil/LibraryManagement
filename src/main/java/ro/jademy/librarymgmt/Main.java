@@ -1,11 +1,22 @@
 package ro.jademy.librarymgmt;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
 
     public static void main(String[] args) {
+        List<String> genereList1 = new ArrayList<>();
+        genereList1.add("Novelty");
+        genereList1.add("Romance");
+        List<String> genreList2 = new ArrayList<>();
+        genereList1.add("SF");
+        genreList2.add("History");
+        User bob = new User("Bob", 20, 1, 23123, genereList1);
+        User ana = new User("Ana", 16, 2, 38198, genreList2);
+
         Book book1 = new Book("The Activity Journal", "Mrs Hinch",
                 "Michael Joseph (17 Oct. 2019)", "0241426847", 288, "English",
                 "Business Motivation Skills");
@@ -21,6 +32,7 @@ public class Main {
         Book book5 = new Book("Don't Wake Up: The most gripping first chapter you will ever read!",
                 "Liz Lawler", "Twenty7 (5 Oct. 2017)", "1785770578", 368,
                 "English", "Psychological");
+
         ArrayList<Book> books = new ArrayList<>();
         ArrayList<Shelf> shelves = new ArrayList<>();
         //Shelf shelf = new Shelf(books, book1.genre);
@@ -57,12 +69,11 @@ public class Main {
         //library.printLibraryBooks();
         //library.printShelves();
 
-        library.borrowBook("Riding the Waves: My Story");
+        library.borrowBook("Riding the Waves: My Story", bob);
 //        library.printLibraryBooks();
         System.out.println("===================");
         library.printBorrowedBooks();
-
-
+        System.out.println(bob.getBorrowedBookList());
 
     }
 }
